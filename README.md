@@ -203,3 +203,34 @@ Get the argocd login password
 ```bash
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 --decode
 ```
+
+## 7.Update EC2 instance storage realtime(already ec2 instance created)
+check all partition 
+
+```bash
+df -h
+```
+Then update the storage from the aws instance UI
+
+after that if we see the all partition using df -h we can see nothing change
+So, we need to change the partition in our instance too
+
+Show available disk space
+
+```bash
+lsblk
+```
+
+now install
+
+```bash
+sudo apt install cloud-guest-utils
+```
+
+Now grow the partition
+
+```bash
+sudo growpart /dev/xvda 1
+```
+```bash
+sudo resize2fs /dev/xvda1```
