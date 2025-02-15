@@ -233,4 +233,5 @@ Now grow the partition
 sudo growpart /dev/xvda 1
 ```
 ```bash
-sudo resize2fs /dev/xvda1```
+sudo resize2fs /dev/xvda1
+```
